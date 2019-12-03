@@ -1,0 +1,29 @@
+
+
+.nav-item{
+    color: white;
+    float: left;
+}
+
+/* .con{
+    background-color: black;
+} */
+.body{
+    color:#2992E0;  
+      /* background-color:black;   */
+   
+}
+
+#dSLogo{
+    height: 50px;
+    width: 250px;
+}
+
+.nav-element{
+    position:absolute;
+    right:50px; 
+}
+.vm{ 
+    margin-top: 150px; 
+    margin-left:600px;}
+

@@ -1,0 +1,27 @@
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Date Filter" type="date" [(ngModel)]="searchTerm">
+ </mat-form-field> 
+
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Floor</th>
+        <th>Visits</th>
+        <th>Percentage Growth Visits</th>
+        <th>Avg Dwell Time</th>
+        <th>change in Dwell Time</th>
+        <th>Engagement %</th>
+        <th>change in Engagement %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+          <td>Ground Floor</td>
+          <td *ngFor="let list of final_arr">{{list}}</td>
+         
+              
+      </tr>
+    </tbody>
+  </table>

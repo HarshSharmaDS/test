@@ -1,0 +1,120 @@
+
+/* .row{ 
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+} */
+
+ 
+
+.nav-item{
+    color: white;
+    float: left;
+}
+ /* .example-card{
+    
+ } */
+ /* mat-card-content{
+    height: 150px;
+    max-height: 200px;
+ } */
+
+ /* .example-card{
+    /* background-color: #edecf5; */
+    
+
+    /* box-shadow: 0 2px 1px -1px rgba(158, 158, 158,1), 
+    0 1px 1px 0  rgba(158, 158, 158,1),
+    0 1px 3px 0 rgba(158, 158, 158,1),; 
+ } 
+ */
+ 
+
+
+
+.dwell_img{
+    width: 115px;
+    height:115px;
+}
+
+/* .BVisits{
+    font-size: 50px;
+} */
+mat-card-subtitle{
+    
+    color: azure;
+    
+}
+
+.csvDownloadButton{
+    float: right;
+    margin-right:7rem;
+}
+
+.example-card{
+    margin:2px;
+    color:#2992E0;
+    width:24%;
+      
+      background-color: #121c36;
+     
+
+
+}
+.example-card-graph{
+    margin:2px;
+    
+   width:48.3%;
+    
+    
+    color:#2992E0; 
+    background-color:#121c36;
+
+
+}
+
+.small-card{
+    
+    height: 80px;
+
+}
+
+card-graph{
+    height: 150px;
+    max-height: 200px;
+   
+}
+#card-top{
+    height:290px;
+    
+}
+
+.table{
+     color:#2992E0; 
+    background-color: #121c36;
+    
+}
+
+.acc{
+    background-color: #121c36;
+    color:#2992E0;
+    
+}
+.mat-display-1{
+    text-align: center;
+    margin:5px 5px;
+
+}
+th{
+    color:#b6b6b6;
+}
+
+
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+    color:#2992E0;
+  }
+
+  /* .my-container{
+    background-color: black;
+} */
+
+  

@@ -1,0 +1,32 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container  {
+       width: 100%; 
+  }
+
+  mat-card{
+      border-radius: 40px;
+      
+      /* border: 1px ;
+      border-style: outset;
+      box-shadow: 1px 1px; */
+     margin-left:35%;
+     margin-top:10%;
+      width: 30%;
+      
+      
+
+  }
+  
+  mat-card-title{
+    text-align: center;
+  }
+  .my-container{
+    /* background-repeat: no-repeat;
+    background-image: url(../../assets/financial-2860753_1280.jpg); */
+    
+
+  }

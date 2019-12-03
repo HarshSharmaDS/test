@@ -1,0 +1,414 @@
+
+
+
+
+ <mat-form-field class="example-full-width">
+  <input matInput placeholder="Date Filter" type="date" [(ngModel)]="searchTerm">
+  <mat-datepicker-toggle  matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  
+  
+</mat-form-field> 
+
+<mat-form-field>
+  <input matInput [matDatepicker]="dp3" placeholder="Input disabled" [(ngModel)]="searchTerm" disabled>
+  <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+  <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+</mat-form-field>
+
+<!-- <mat-form-field>
+  <input matInput [matDatepicker]="picker" [(ngModel)]="searchTerm"  placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker ></mat-datepicker>
+</mat-form-field> -->
+
+
+
+
+
+
+        
+<!-- <button mat-button color="primary" (click)="datefilter()">Filter</button> -->
+
+
+        
+
+        
+        <div class="row">
+          <!-- <div class="col-sm"> -->
+                <mat-card class="example-card" id="card-top" >
+                        <mat-card-header>
+                          <div mat-card-avatar><mat-icon>wifi</mat-icon></div>
+                          <mat-card-title  >Visits</mat-card-title>
+                           <mat-card-subtitle>(numerals)</mat-card-subtitle> 
+                        </mat-card-header>
+                        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                        <mat-card-content >
+                          
+                              <div  *ngFor="let visit of filterd_visits">
+                                  
+                                  <!-- <img  class="eng" src="../../assets/Visits.PNG" > -->
+                                  <div class="row">
+
+                                  
+                                  <div class="col">
+                                      <p  class="mat-display-1">{{visit[1]}}</p>
+
+                                  </div>
+                                  <div class="col">
+                                      <canvas baseChart style="width: 170px"
+                                      [datasets]="lineChartDataVisitsDash"
+                                      [labels]="lineChartLabelsVisitsDash"
+                                      [options]="lineChartOptionsCard"
+                                      [chartType]="lineChartType"
+                                      [colors]="lineChartColorsVisitsDash">
+                                    </canvas>
+
+                                  </div>
+                                </div>
+                                  
+                                 
+                               
+                              </div>
+
+                        </mat-card-content>
+                        <!-- <mat-card-actions>
+                          <button mat-button color="accent">MORE</button>
+                        </mat-card-actions> -->
+                      </mat-card>
+            
+          <!-- </div> -->
+
+
+
+          <!-- <div class="col-sm"> -->
+            <mat-card class="example-card" id="card-top" >
+                        <mat-card-header>
+                           
+                                <div class="col">
+                                    <mat-card-title> Engagement <!--<img src="../../assets/Engagement.PNG" alt="">--></mat-card-title> 
+                                    <mat-card-subtitle>(visits > 30 mins)</mat-card-subtitle>
+                                </div>
+                                  <div class="col">
+                                      <mat-card-title> Bounced   <!--<img src="../../assets/Engagement.PNG" alt="">--></mat-card-title> 
+                                      <mat-card-subtitle>(visits > 30 mins)</mat-card-subtitle>
+                                  </div>
+                                  
+                                </mat-card-header>
+                        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                        <mat-card-content >
+                          
+                          <div class="row" *ngFor="let bev of filterd_BouncedEngagementVisits">
+                            <div class="col">
+                              <p class="mat-display-1">{{bev[1]}}</p>
+                            </div>
+                            <div class="col">
+                               
+                                   <p class="mat-display-1">{{bev[2]}}</p>
+                            </div>
+                          </div>
+
+                        </mat-card-content>
+                        <!-- <mat-card-actions>
+                          <button mat-button color="accent">MORE</button>
+                        </mat-card-actions> -->
+                      </mat-card>
+          <!-- </div> -->
+
+          
+          <!-- <div class="col-sm"> -->
+                <mat-card class="example-card" id="card-top">
+                        <mat-card-header>
+                          <mat-card-title>Average Dwell Time</mat-card-title>
+                          
+                        </mat-card-header>
+                      <mat-card-content class="small-card">
+                        
+                              <div  *ngFor="let dwell of filterd_DwellTime">
+                               
+                                    <!-- <img  class="dwell_img" src="../../assets/DwellTime.PNG"> -->
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                      <div class="col">
+                                          <p class="col" class="mat-display-1" id="dis">{{dwell[1]}}</p>
+                                           <mat-card-subtitle class="sub">(In Mins)</mat-card-subtitle>
+                                      </div>
+                                          <div class="col">
+                                              <canvas baseChart style="width: 170px"
+                                              [datasets]="lineChartDataDwellTime"
+                                              [labels]="lineChartLabelsDwellTime"
+                                              [chartType]="lineChartType"
+                                              [options]="lineChartOptionsCard"
+                                              [colors]="lineChartColorsVisitsDash">
+                                            </canvas>
+        
+                                          </div>
+                                        
+
+                                    </div>
+                                    
+                                    
+                                
+                              </div>
+                              
+                        </mat-card-content>
+                        <!-- <mat-card-actions>
+                          <button mat-button color="accent">MORE</button>
+                        </mat-card-actions> -->
+                      </mat-card>
+          <!-- </div> -->
+
+          <!-- <div class="col-md"> -->
+              <mat-card class="example-card" id="card-top">
+                      <mat-card-header>
+                        <div mat-card-avatar><mat-icon>access_time</mat-icon></div>
+                            <mat-card-title>Loyalty</mat-card-title>
+                      </mat-card-header>
+                      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                      <mat-card-content>
+                          <div  class="row" *ngFor="let loyal of Loyality">
+                            <!-- <div class="row">
+                              
+                                <mat-progress-bar mode="determinate" value= {{loyal[0]*100}}>new customerloyalty</mat-progress-bar>
+                            </div>  -->
+                            
+                              <div class="col">
+                                <mat-card-subtitle>New Customer's</mat-card-subtitle>
+                                <p class="mat-display-1" id="dis">{{loyal[0]*100|number : '1.2-2'}}%</p>
+                                
+                              </div>
+                              <div class="col">
+                                <mat-card-subtitle>Repeat Customer's</mat-card-subtitle>
+                                  <p class="mat-display-1" id="dis">{{(1-loyal[0])*100|number:'1.2-2'}}%</p> 
+                                  
+                              </div>
+                               
+                              </div>
+
+                      </mat-card-content>
+                      <!-- <mat-card-actions>
+                        <button mat-button color="accent">MORE</button>
+                      </mat-card-actions> -->
+                    </mat-card>
+
+      <!-- </div> -->
+          </div>
+
+          <div class="row">
+            
+                <!-- <div class="col-sm"> -->
+                        <mat-card class="example-card-graph">
+                                <mat-card-header>
+                                  <div mat-card-avatar><mat-icon>access_time</mat-icon></div>
+                                  <mat-card-title>Dwell Time Breakdown</mat-card-title>
+                                  <mat-card-subtitle></mat-card-subtitle>
+                                </mat-card-header>
+                                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                                <mat-card-content >
+                                    <canvas width="25px" height="10px"  baseChart
+                                    [datasets]="barChartData"
+                                    [labels]="barChartLabels"
+                                    [options]="barChartOptions"
+                                    [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                                    </canvas>
+                                </mat-card-content>
+                                <!--   -->
+                              </mat-card>
+
+                <!-- </div> -->
+                <!-- <div class="col-sm"> -->
+
+                        <mat-card class="example-card-graph">
+                                <mat-card-header>
+                                  <div mat-card-avatar><mat-icon>access_time</mat-icon></div>
+                                  <mat-card-title>Multiple Visit Breakdown</mat-card-title>
+                                  <mat-card-subtitle></mat-card-subtitle>
+                                </mat-card-header>
+                                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                                <mat-card-content>
+
+                                    <!--                                    
+                                    <canvas width="25px" height="10px" baseChart
+                                    [datasets]="barChartData2"
+                                    [labels]="barChartLabels2"
+                                    [options]="barChartOptions2"
+                                    [legend]="barChartLegend2"
+                                    [chartType]="barChartType2">
+                                    </canvas> -->
+                                    <div style="display: block">
+                                        <canvas baseChart
+                                                [data]="pieChartData"
+                                                [labels]="pieChartLabels"
+                                                [chartType]="pieChartType"></canvas>
+                                      </div>
+                                  
+                                </mat-card-content>
+                                <!-- <mat-card-actions>
+                                  <button mat-button color="accent">MORE</button>
+                                </mat-card-actions> -->
+                              </mat-card>
+                    
+                <!-- </div> -->
+
+          </div>
+        
+          <hr>
+            <br>
+            <br>                    
+              <p class="mat-display-2">Site Ranking</p>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th><!-- <img src="../../assets/visits_csv.PNG" alt="visits_csv">-->Visits</th> 
+                  <th><!--<img src="../../assets/csv_bounced.PNG" alt="csv_bounced">-->BouncedEngagementVisits</th>
+                  <th><!--<img src="../../assets/csv_dwelltime.PNG" alt="csv_dwelltime">-->DwellTime</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr >
+                  <td *ngFor="let data of csv_arr">{{data}}</td>
+
+                </tr>
+              </tbody>
+              
+            </table>
+
+            <br>
+            <div class="csvDownloadButton">
+              
+                <button (click)="downloadCSV()" mat-stroked-button color="primary" ><mat-icon>save_alt</mat-icon>Download CSV Report</button>
+    
+            </div>
+           
+            <br>
+            <br>
+            <br>
+            <hr>
+            <p class="mat-display-2">Visits</p>
+              
+                <mat-accordion >
+                 <mat-expansion-panel class="acc">
+                  <mat-expansion-panel-header class="specific-class">
+                      <p class="mat-body-2">Visits Daily Trend</p>
+                  </mat-expansion-panel-header>
+              
+                  <canvas baseChart
+                  [datasets]="lineChartDataVisits"
+                  [labels]="lineChartLabelsVisits"
+                  [chartType]="lineChartType"
+                  [colors]="lineChartColorsVisits">
+                  </canvas>
+              
+                </mat-expansion-panel>
+              
+                <mat-expansion-panel class="acc">
+                  <mat-expansion-panel-header  class="specific-class">
+                       <p class="mat-body-2">Visits Trend Data</p>
+                  </mat-expansion-panel-header>
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Date-Time</th>
+                          <th scope="col">Visits</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Monday, 21 October 2019</td>
+                          <td>21</td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Monday, 21 October 2019</td>
+                          <td>31</td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Monday, 21 October 2019</td>
+                          <td>41</td>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                 
+              
+                </mat-expansion-panel>
+              
+              </mat-accordion>
+
+              <br>
+              <br>
+
+              <p class="mat-display-2">DwellTime</p>
+              
+              <mat-accordion>
+               <mat-expansion-panel class="acc">
+                <mat-expansion-panel-header class="specific-class">
+                    <p class="mat-body-2">Dwell Time Daily Trend</p>
+                  
+                </mat-expansion-panel-header>
+            
+                <canvas baseChart
+                  [datasets]="lineChartDataDwellTime"
+                  [labels]="lineChartLabelsDwellTime"
+                  [chartType]="lineChartType">
+                  </canvas>
+            
+              </mat-expansion-panel>
+            
+              <mat-expansion-panel class="acc">
+                <mat-expansion-panel-header class="specific-class">
+                    <p class="mat-body-2">Dwell Time Data </p>
+                </mat-expansion-panel-header>
+            
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date-Time</th>
+                        <th scope="col">Visits</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Monday, 21 October 2019</td>
+                        <td>21</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Monday, 21 October 2019</td>
+                        <td>31</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Monday, 21 October 2019</td>
+                        <td>41</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+            
+              </mat-expansion-panel>
+            
+            </mat-accordion>
+            <br><br><br>
+         
+
+
+           
+
+          
+            
+            
+
+
+     
