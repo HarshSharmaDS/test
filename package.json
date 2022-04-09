@@ -35,7 +35,7 @@
     "leaflet-image": "^0.4.0",
     "leaflet-map": "^0.2.1",
     "leaflet.heat": "^0.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng2-charts": "^2.3.0",
     "p5": "^0.10.2",
     "rxjs": "~6.4.0",
